@@ -1,0 +1,7 @@
+<form #signUpForm="ngForm">
+    <input type='text' #userName="ngModel" [(ngModel)]="userService.selectedUser.userName" name="userName" placeholder="User name" required [ngClass]="{'invalid-textbox' : signUpForm.submitted && !userName.valid}">
+    <input type='text' #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email" required>
+    <input type='password' #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="User name" required>
+    <input type="submit" value="Sign Up">
+    </form>
+    
