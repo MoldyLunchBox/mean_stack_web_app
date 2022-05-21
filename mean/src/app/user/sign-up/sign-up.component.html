@@ -1,7 +1,18 @@
-<form #signUpForm="ngForm">
-    <input type='text' #userName="ngModel" [(ngModel)]="userService.selectedUser.userName" name="userName" placeholder="User name" required [ngClass]="{'invalid-textbox' : signUpForm.submitted && !userName.valid}">
-    <input type='text' #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email" required>
-    <input type='password' #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="User name" required>
+<div>
+    <img src="/assets/img/users.png" id="icon" alt="user icon"> 
+</div>
+<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+    <input type='text' #userName="ngModel" [(ngModel)]="userService.selectedUser.userName" name="userName" placeholder="User name" 
+    required [ngClass]="{'invalid-textbox' : signUpForm.submitted && !userName.valid}">
+    <div *ngIf="signUpForm.submitted && !userName.valid">
+        <label class="validation-message">This field is required.</label>
+    </div>
+    <input type='text' #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email" 
+    required [pattern]="emailRegex" [ngClass]="{'invalid-textbox' : signUpForm.submitted && !email.valid}">
+    <input type='password' #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="password" 
+    minLength="6" required [ngClass]="{'invalid-textbox' : signUpForm.submitted && !password.valid}">
     <input type="submit" value="Sign Up">
     </form>
     
+    <!-- success message -->
+    <div class="success" *ngIf="showSuccessMessage"> Saved successfully </div>

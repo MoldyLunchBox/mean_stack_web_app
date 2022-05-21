@@ -6,4 +6,4 @@ const mongoose = require('mongoose');
         console.log('Error in MongoDB connection : ' + JSON.stringify(err, undefined, 2));
  });
 
- require('./user.model'); 
+ require('./user.model');
