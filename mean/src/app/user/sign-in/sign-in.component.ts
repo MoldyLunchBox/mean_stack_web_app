@@ -20,6 +20,8 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(form: NgForm) {
+    console.log('aaaaaaaa this is form');
+    console.log(form.value);
     this.userService.login(form.value).subscribe(
       (res : any) =>{
         this.userService.setToken(res['token']);

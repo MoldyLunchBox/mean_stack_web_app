@@ -1,6 +1,8 @@
 {
     "development":{
         "PORT":3000,
-        "MONGODB_URI":"mongodb+srv://mongo:MONGO_testing_1@cluster0.jgzz8.mongodb.net/test"
+        "MONGODB_URI":"mongodb+srv://mongo:MONGO_testing_1@cluster0.jgzz8.mongodb.net/test",
+        "JWT_SECRET" : "Abdu_azul123",
+        "JWT_EXP": "2m"
     }
 }

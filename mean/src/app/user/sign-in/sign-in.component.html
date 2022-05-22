@@ -2,8 +2,8 @@
     <img src="/assets/img/login.png" id="icon" alt="user icon"/>
 </div>
 <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
-    <input type="text" #email="ngModel" [(ngModel)]="model.email" [pattern]="emailRegex" 
-    required placeholder="Email" [ngClass]="{'invalid-textbox' : signInForm.submitted && !email.valid}">
+<input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" [pattern]="emailRegex" 
+required placeholder="Email" [ngClass]="{'invalid-textbox' : signInForm.submitted && !email.valid}">
 <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password"
 required minlength="6" [ngClass]="{'invalid-textbox' : signInForm.submitted && !password.valid}">
 <input type="submit" value="Sign In">
